@@ -395,3 +395,33 @@ footer .disclaimer { max-width: 720px; margin: 0 auto 10px; font-size: 0.8rem; o
 @media (max-width: 560px) {
   .info-list { grid-template-columns: 1fr; }
 }
+
+/* ---------- 多面魅力 · 气泡 ---------- */
+.charm-bubbles {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 30px; padding: 26px 0 10px;
+}
+.bubble-tag {
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #7CD3E8, var(--primary-deep));
+  color: #fff; font-weight: 800; letter-spacing: 2px;
+  box-shadow: var(--shadow-hover);
+  animation: float 5.5s ease-in-out infinite;
+  position: relative;
+  transition: transform .25s ease;
+}
+.bubble-tag::after {
+  content: ""; position: absolute; inset: 9px; border-radius: inherit;
+  border: 1.5px dashed rgba(255,255,255,0.5); pointer-events: none;
+}
+.bubble-tag:hover { transform: scale(1.07); }
+.bubble-tag.lg   { width: 168px; height: 168px; font-size: 1.75rem; }
+.bubble-tag.md   { width: 142px; height: 142px; font-size: 1.5rem; }
+.bubble-tag.sm   { width: 120px; height: 120px; font-size: 1.3rem; }
+.bubble-tag.wide { width: 205px; height: 205px; font-size: 1.35rem; letter-spacing: 4px; }
+.bubble-tag:nth-child(even) { animation-delay: 1s; }
+.bubble-tag:nth-child(3n)   { animation-delay: .5s; }
+
+/* 照片加载前的底色，避免大图加载时空白 */
+.g-item { background: linear-gradient(135deg, var(--primary-soft), var(--bg)); }

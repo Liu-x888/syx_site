@@ -53,8 +53,8 @@
   }
   var skillsGrid = document.getElementById("skillsGrid");
   if (skillsGrid && window.PROFILE) {
-    skillsGrid.innerHTML = window.PROFILE.skills.map(function (s) {
-      return '<div class="skill card reveal"><div class="ico">' + s.ico + '</div><h3>' + s.title + '</h3><p>' + s.desc + "</p></div>";
+    skillsGrid.innerHTML = window.PROFILE.charm.map(function (b) {
+      return '<span class="bubble-tag ' + b.size + '">' + b.text + '</span>';
     }).join("");
   }
   var statsRow = document.getElementById("statsRow");
@@ -71,7 +71,7 @@
   var lightbox = document.getElementById("lightbox");
   if (galleryEl && window.GALLERY) {
     galleryEl.innerHTML = window.GALLERY.map(function (g, i) {
-      return '<figure class="g-item reveal" data-index="' + i + '"><img src="' + g.src + '" alt="' + g.cap + '" loading="lazy"><figcaption class="cap">' + g.cap + "</figcaption></figure>";
+      return '<figure class="g-item" data-index="' + i + '"><img src="' + g.src + '" alt="' + g.cap + '"><figcaption class="cap">' + g.cap + "</figcaption></figure>";
     }).join("");
 
     var cur = 0;

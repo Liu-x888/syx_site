@@ -1,18 +1,14 @@
-﻿/* ============ 照片墙数据 ============
- * 使用方法：把真实照片放到 photos/ 文件夹（如 photo-01.jpg），
- * 然后改下面的 src 文件名和 caption 描述即可。
- */
+/* ============ 照片墙数据 ============ */
 window.GALLERY = [
-  { src: "photos/photo-01.svg", cap: "舞台上的少年" },
-  { src: "photos/photo-02.svg", cap: "元气满满的一天" },
-  { src: "photos/photo-03.svg", cap: "专注歌唱时刻" },
-  { src: "photos/photo-04.svg", cap: "治愈系笑容" },
-  { src: "photos/photo-05.svg", cap: "清新日常" },
-  { src: "photos/photo-06.svg", cap: "舞台高光" },
-  { src: "photos/photo-07.svg", cap: "少年感侧颜" },
-  { src: "photos/photo-08.svg", cap: "排练室的认真" },
-  { src: "photos/photo-09.svg", cap: "温柔对视" },
-  { src: "photos/photo-10.svg", cap: "综艺名场面" },
-  { src: "photos/photo-11.svg", cap: "海边少年" },
-  { src: "photos/photo-12.svg", cap: "最好的亚轩" }
+  { src: "photos/stage.jpg", cap: "舞台上的少年" },
+  { src: "photos/日常.jpg", cap: "这是日常亚" },
+  { src: "photos/海胆头回归.jpg", cap: "海胆头真神!!" },
+  { src: "photos/治愈笑容.jpg", cap: "治愈系笑容" },
+  { src: "photos/1.jpg", cap: "清新日常" },
+  { src: "photos/搞怪宝.jpg", cap: "搞怪亚宝" },
+  { src: "photos/红发.jpg", cap: "红发啊啊啊" },
+  { src: "photos/老公.jpg", cap: "完全老公来的" },
+  { src: "photos/卖萌.jpg", cap: "要不要这么萌亚" },
+  { src: "photos/西装亚.jpg", cap: "妈呀西装爱穿多穿" },
+  { src: "photos/搞怪.jpg", cap: "搞怪日常" }
 ];
