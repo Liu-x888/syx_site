@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>芽芽轩的小世界 · 宋亚轩个人介绍网站</title>
+  <meta name="description" content="欢迎来到芽芽轩的小世界！这里是歌手、演员、时代少年团成员宋亚轩的个人介绍网站，包含个人简介、照片、作品与互动留言。">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <nav class="nav">
+    <a class="brand" href="index.html"><span class="logo-badge">芽</span>芽芽轩的小世界</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="photos.html">照片</a>
+      <a href="works.html">作品</a>
+      <a href="comments.html">留言板</a>
+    </div>
+    <div class="nav-extras">
+      <a class="icon-btn" href="https://weibo.com/u/3771683429" target="_blank" rel="noopener" title="官方微博">📣</a>
+      <button class="icon-btn nav-toggle" aria-label="菜单">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="bubbles" aria-hidden="true">
+      <span class="bubble" style="width:120px;height:120px;top:12%;left:8%;"></span>
+      <span class="bubble" style="width:70px;height:70px;top:22%;right:12%;animation-delay:1.2s;"></span>
+      <span class="bubble" style="width:50px;height:50px;bottom:18%;left:16%;animation-delay:2s;"></span>
+      <span class="bubble" style="width:90px;height:90px;bottom:12%;right:8%;animation-delay:.6s;"></span>
+    </div>
+    <div class="container">
+      <span class="badge">🌊 欢迎来到芽芽轩的小世界</span>
+      <h1>宋 亚 轩</h1>
+      <p class="subtitle">时代少年团成员 · 歌手 · 演员</p>
+      <p class="tagline">「宋似星辰如亚轩 · 人鱼王子入凡间」</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="photos.html">📸 看看照片</a>
+        <a class="btn btn-ghost" href="works.html">🎵 看看作品</a>
+      </div>
+      <div class="hero-avatar" aria-hidden="true">🐬</div>
+    </div>
+  </header>
+
+  <!-- 个人简介 -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">ABOUT</span>
+        <h2>关于亚轩</h2>
+        <p>一个用歌声治愈人心、用笑容温暖世界的少年</p>
+      </div>
+      <div id="bioGrid" class="bio-grid"></div>
+      <div class="about-text reveal">
+        <p id="aboutText"></p>
+      </div>
+      <div id="statsRow" class="stats"></div>
+    </div>
+  </section>
+
+  <!-- 个人能力 -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="kicker">CHARM</span>
+        <h2>多面魅力</h2>
+        <p>颜值与实力并存，每个领域都闪闪发光</p>
+      </div>
+      <div id="skillsGrid" class="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- 去留言 -->
+  <section class="section" style="padding-top:0;">
+    <div class="container" style="text-align:center;">
+      <div class="section-head reveal">
+        <span class="kicker">JOIN US</span>
+        <h2>来留下你的话吧</h2>
+        <p>匿名留言，想说什么都可以～点个赞，让亚轩看到大家的喜欢</p>
+      </div>
+      <a class="btn btn-primary reveal" href="comments.html">💬 去留言板</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="disclaimer">本网站为粉丝自制的非官方宣传网站，仅用于展示与交流。资料整理自公开渠道（百度百科等），如有出入欢迎指正。图片版权归原作者所有，如有不妥请联系删除。</p>
+      <p>💙 芽芽轩的小世界 · 与小海螺一起陪伴亚轩成长</p>
+    </div>
+  </footer>
+
+  <button id="toTop" title="回到顶部">↑</button>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

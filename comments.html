@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>互动留言板 · 芽芽轩的小世界</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="brand" href="index.html"><span class="logo-badge">芽</span>芽芽轩的小世界</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="photos.html">照片</a>
+      <a href="works.html">作品</a>
+      <a href="comments.html">留言板</a>
+    </div>
+    <div class="nav-extras">
+      <a class="icon-btn" href="https://weibo.com/u/3771683429" target="_blank" rel="noopener" title="官方微博">📣</a>
+      <button class="icon-btn nav-toggle" aria-label="菜单">☰</button>
+    </div>
+  </nav>
+
+  <div class="page-head">
+    <span class="kicker">COMMENTS</span>
+    <h1>互动留言板</h1>
+    <p>全员匿名 · 自由留言 · 点赞支持</p>
+  </div>
+
+  <section class="section" style="padding-top:34px;">
+    <div class="container" style="max-width:760px;">
+
+      <div class="notice">💡 <div><b>当前为演示模式：</b>留言和点赞暂时只保存在你自己的浏览器里，方便你先体验交互效果。等确认没问题后，我再帮你接入云端，让所有访客的留言真正互通。</div></div>
+
+      <!-- 留言表单 -->
+      <form id="cmtForm" class="comment-form card">
+        <textarea id="cmtInput" maxlength="200" placeholder="想说点什么？匿名留言，放心大胆地表达你的喜欢～"></textarea>
+        <div class="form-foot">
+          <span class="hint" id="charHint">0 / 200</span>
+          <button type="submit" class="btn btn-like">💬 发送留言</button>
+        </div>
+      </form>
+
+      <!-- 排序工具条 -->
+      <div class="toolbar">
+        <span class="count" id="cmtCount">共 0 条留言</span>
+        <div class="sort-btns">
+          <button class="sort-btn active" data-sort="new">🕐 最新</button>
+          <button class="sort-btn" data-sort="hot">🔥 最多点赞</button>
+        </div>
+      </div>
+
+      <!-- 留言列表 -->
+      <div id="cmtList" class="comment-list"></div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="disclaimer">本网站为粉丝自制的非官方宣传网站，仅用于展示与交流。留言内容由访客自主发布，请文明发言。</p>
+      <p>💙 芽芽轩的小世界 · 与小海螺一起陪伴亚轩成长</p>
+    </div>
+  </footer>
+
+  <button id="toTop" title="回到顶部">↑</button>
+  <script src="js/comments.js"></script>
+</body>
+</html>

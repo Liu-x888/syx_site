@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>照片墙 · 芽芽轩的小世界</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="brand" href="index.html"><span class="logo-badge">芽</span>芽芽轩的小世界</a>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="photos.html">照片</a>
+      <a href="works.html">作品</a>
+      <a href="comments.html">留言板</a>
+    </div>
+    <div class="nav-extras">
+      <a class="icon-btn" href="https://weibo.com/u/3771683429" target="_blank" rel="noopener" title="官方微博">📣</a>
+      <button class="icon-btn nav-toggle" aria-label="菜单">☰</button>
+    </div>
+  </nav>
+
+  <div class="page-head">
+    <span class="kicker">GALLERY</span>
+    <h1>光影集 · 帅照墙</h1>
+    <p>点击任意照片可放大查看（图片为占位图，替换方式见 README）</p>
+  </div>
+
+  <section class="section" style="padding-top:34px;">
+    <div class="container">
+      <div id="gallery" class="gallery"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="disclaimer">本网站为粉丝自制的非官方宣传网站，仅用于展示与交流。图片版权归原作者所有，如有不妥请联系删除。</p>
+      <p>💙 芽芽轩的小世界 · 与小海螺一起陪伴亚轩成长</p>
+    </div>
+  </footer>
+
+  <!-- 灯箱 -->
+  <div id="lightbox" class="lightbox">
+    <button class="lb-close" aria-label="关闭">✕</button>
+    <button class="lb-btn lb-prev" aria-label="上一张">‹</button>
+    <img src="" alt="照片预览">
+    <button class="lb-btn lb-next" aria-label="下一张">›</button>
+    <div class="lb-cap"></div>
+  </div>
+
+  <button id="toTop" title="回到顶部">↑</button>
+  <script src="js/gallery-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
