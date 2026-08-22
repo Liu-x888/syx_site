@@ -1,4 +1,4 @@
-﻿/* ============ 全局交互 ============ */
+/* ============ 全局交互 ============ */
 (function () {
   "use strict";
 
@@ -45,10 +45,10 @@
   }
 
   /* 首页数据渲染（简介档案 / 能力 / 数据条） */
-  var bioGrid = document.getElementById("bioGrid");
-  if (bioGrid && window.PROFILE) {
-    bioGrid.innerHTML = window.PROFILE.facts.map(function (f) {
-      return '<div class="fact reveal"><div class="label">' + f.label + '</div><div class="value">' + f.value + (f.small ? "<small>" + f.small + "</small>" : "") + "</div></div>";
+  var profileInfo = document.getElementById("profileInfo");
+  if (profileInfo && window.PROFILE) {
+    profileInfo.innerHTML = window.PROFILE.facts.map(function (f) {
+      return '<div class="info-row"><span class="il">' + f.label + '</span><span class="iv">' + f.value + (f.small ? "<small>" + f.small + "</small>" : "") + '</span></div>';
     }).join("");
   }
   var skillsGrid = document.getElementById("skillsGrid");
