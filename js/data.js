@@ -1,10 +1,10 @@
 /* ============ 作品数据（在这里增删改作品） ============ */
 window.WORKS_DATA = {
   music: [
-    { title: "《5:23PM》", qq: "https://y.qq.com/n/ryqq/songDetail/002EDycd2x5wOe", type: "个人单曲", date: "2023-03-04", desc: "首支个人单曲，以日落时刻命名，温柔又有少年感。登上由你榜第二周即夺冠，是他的首支个人冠军单曲。", highlights: ["由你榜首支个人冠军单曲", "累计上榜 41 周"] },
-    { title: "《失恋循环》", qq: "https://y.qq.com/n/ryqq/songDetail/000tcnAO3YQTTJ", type: "个人单曲", date: "2024-03-25", desc: "用清亮的嗓音唱出失恋后的心绪循环，旋律抓耳，广受好评。", highlights: ["多个音乐榜单冠军"] },
-    { title: "《体贴》", qq: "https://y.qq.com/n/ryqq/songDetail/001zM0qG1vOhzn", type: "个人单曲", date: "2024-12-02", desc: "温柔治愈的冬日单曲，细腻演绎出满满的体贴与心动。", highlights: ["多个音乐榜单冠军"] },
-    { title: "《spr.》", qq: "https://y.qq.com/n/ryqq/songDetail/003PzIdk2aTASZ", type: "个人单曲", date: "2025-03-03", desc: "春日限定单曲，上线即横扫各大榜单，创造多项纪录。", highlights: ["由你榜历史得分第一", "2025 年度得分第一", "最快达成·白金单曲"] }
+    { title: "《5:23PM》", qq: "https://i.y.qq.com/n2/m/share/details/song.html?songmid=002EDycd2x5wOe&songid=399068181", type: "个人单曲", date: "2023-03-04", desc: "首支个人单曲，以日落时刻命名，温柔又有少年感。登上由你榜第二周即夺冠，是他的首支个人冠军单曲。", highlights: ["由你榜首支个人冠军单曲", "累计上榜 41 周"] },
+    { title: "《失恋循环》", qq: "https://i.y.qq.com/n2/m/share/details/song.html?songmid=000tcnAO3YQTTJ&songid=479151308", type: "个人单曲", date: "2024-03-25", desc: "用清亮的嗓音唱出失恋后的心绪循环，旋律抓耳，广受好评。", highlights: ["多个音乐榜单冠军"] },
+    { title: "《体贴》", qq: "https://i.y.qq.com/n2/m/share/details/song.html?songmid=001zM0qG1vOhzn&songid=547524759", type: "个人单曲", date: "2024-12-02", desc: "温柔治愈的冬日单曲，细腻演绎出满满的体贴与心动。", highlights: ["多个音乐榜单冠军"] },
+    { title: "《spr.》", qq: "https://i.y.qq.com/n2/m/share/details/song.html?songmid=003PzIdk2aTASZ&songid=565079501", type: "个人单曲", date: "2025-03-03", desc: "春日限定单曲，上线即横扫各大榜单，创造多项纪录。", highlights: ["由你榜历史得分第一", "2025 年度得分第一", "最快达成·白金单曲"] }
   ],
   variety: [
     { title: "《王牌对王牌》", type: "常驻嘉宾", date: "第6~9季", desc: "国民级综艺常驻，金句与名场面不断，综艺感满满，收获大量观众喜爱。", highlights: ["多季常驻"] },
