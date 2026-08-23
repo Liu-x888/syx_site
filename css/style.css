@@ -450,6 +450,17 @@ footer .disclaimer { max-width: 720px; margin: 0 auto 10px; font-size: 0.8rem; o
 }
 .weibo-link:hover { color: #fff; transform: translateY(-2px); box-shadow: var(--shadow-hover); }
 
+.splash-back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 999px; white-space: nowrap;
+  border: 2px solid var(--primary-deep);
+  background: rgba(255,255,255,.75);
+  color: var(--primary-deep); font-weight: 700; font-size: 0.85rem;
+  font-family: inherit; cursor: pointer;
+  box-shadow: var(--shadow); transition: all .2s ease;
+}
+.splash-back-btn:hover { background: #fff; transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+
 /* ---------- 作品页 · 去QQ音乐按钮 / 整卡可点 ---------- */
 .qq-go-btn {
   display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;

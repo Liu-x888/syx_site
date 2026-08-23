@@ -10,5 +10,10 @@ window.GALLERY = [
   { src: "photos/老公.jpg", cap: "完全老公来的" },
   { src: "photos/卖萌.jpg", cap: "要不要这么萌亚" },
   { src: "photos/西装亚.jpg", cap: "妈呀西装爱穿多穿" },
-  { src: "photos/搞怪.jpg", cap: "搞怪日常" }
+  { src: "photos/搞怪.jpg", cap: "搞怪日常" },
+  { src: "photos/舞台.jpg", cap: "闪闪发光沉浸于歌曲的你" },
+  { src: "photos/蓝衣.jpg", cap: "穿着应援色回应我们的你" },
+  { src: "photos/毕业.jpg", cap: "学长！毕业快乐" },
+  { src: "photos/可爱.jpg", cap: "来给生活比个耶" },
+  { src: "photos/侧脸.jpg", cap: "侧脸暴击，心动预警" }
 ];
