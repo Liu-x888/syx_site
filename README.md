@@ -1,4 +1,4 @@
-﻿# 芽芽轩的小世界 🌊💙
+# 芽芽轩的小世界 🌊💙
 
 宋亚轩个人介绍网站（粉丝自制 · 非官方），青色 #E1F5FA + 蓝色 #63C5DE 主题，包含四个页面：
 
@@ -44,26 +44,24 @@
 
 > 注意：用 Netlify Drop 免费版临时网址可能过期，长期使用建议用 GitHub Pages 或注册 Netlify 账号部署。
 
-## 五、留言板接入云端（待你确认后执行）💬
+## 五、留言板接入云端（正式搭建）💬
 
-当前留言板是演示模式（数据存在访客本机浏览器）。要变成"所有人留言互通"：
+当前留言板是「演示模式」（数据存在访客本机浏览器，仅预览用）。
+要变成「所有访客留言互通、存云端」，只需 4 步（约 5 分钟）：
 
-1. 注册 [Supabase](https://supabase.com)（邮箱即可），新建一个项目。
-2. 把项目里的 `URL` 和 `anon key` 填入 `js/comments.js` 顶部。
-3. 在 Supabase SQL 编辑器运行下面这句，创建留言表：
-   ```sql
-   create table comments (
-     id uuid primary key default gen_random_uuid(),
-     text text not null,
-     likes int not null default 0,
-     created_at timestamptz not null default now()
-   );
-   alter table comments enable row level security;
-   create policy "匿名可留言" on comments for insert with check (true);
-   create policy "匿名可阅读" on comments for select using (true);
-   create policy "匿名可点赞" on comments for update using (true);
-   ```
-4. 我在 `js/comments.js` 里把存储适配器换成云端请求即可。
+1. 打开 [supabase.com](https://supabase.com) 注册（邮箱即可）→ New project。
+   项目地区（Region）选 **Singapore（新加坡）**，离国内更近。
+2. 左侧菜单 **SQL Editor** → 把 `supabase.sql` 文件里的内容整段粘贴 → **Run**（运行）。
+3. 左侧菜单 **Settings → API**，复制 **Project URL** 和 **anon public key** 两个值。
+4. 把这两个值填入 `js/comments.js` 顶部的 `CONFIG`（也可以直接发给 AI 帮你填），保存刷新即可。
+
+> 省内存方案说明：留言板采用**分页加载**（默认每页 20 条），
+> 页面每次只渲染一页，想看更多点「加载更多」；
+> 所以即使有几万条留言，网页内存占用也几乎不变，不会卡顿。
+> 排序「最新 / 最多点赞」由云端数据库完成，数据量再大也很快。
+
+> 小提示：Supabase 免费版项目若超过 7 天没人访问会自动暂停，
+> 打开 Supabase 后台点一下 Restore（恢复）即可继续使用。
 
 ## 六、小提示
 

@@ -122,7 +122,8 @@
       worksWrap.innerHTML = list.map(function (w) {
         var chips = (w.highlights || []).map(function (h) { return '<span class="chip">' + h + "</span>"; }).join("");
         var meta = w.date ? '<div class="meta">' + w.date + " · " + (w.type || "") + "</div>" : '<div class="meta">' + (w.type || "") + "</div>";
-        return '<article class="work card reveal"><span class="tag">' + labels[w.cat] + "</span><h3>" + w.title + "</h3>" + meta + "<p>" + w.desc + "</p>" + (chips ? '<div class="chip-row">' + chips + "</div>" : "") + "</article>";
+        var title = w.qq ? '<a class="song-link" href="' + w.qq + '" target="_blank" rel="noopener" title="在 QQ 音乐打开这首歌">' + w.title + '<span class="qq-badge">QQ音乐 ↗</span></a>' : w.title;
+        return '<article class="work card reveal"><span class="tag">' + labels[w.cat] + "</span><h3>" + title + "</h3>" + meta + "<p>" + w.desc + "</p>" + (chips ? '<div class="chip-row">' + chips + "</div>" : "") + "</article>";
       }).join("");
       /* 触发入场动画 */
       worksWrap.querySelectorAll(".reveal").forEach(function (el) {

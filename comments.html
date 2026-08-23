@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -32,7 +32,7 @@
   <section class="section" style="padding-top:34px;">
     <div class="container" style="max-width:760px;">
 
-      <div class="notice">💡 <div><b>当前为演示模式：</b>留言和点赞暂时只保存在你自己的浏览器里，方便你先体验交互效果。等确认没问题后，我再帮你接入云端，让所有访客的留言真正互通。</div></div>
+      <div class="notice" id="modeNotice">💡 <div>正在检测留言模式…</div></div>
 
       <!-- 留言表单 -->
       <form id="cmtForm" class="comment-form card">
@@ -54,6 +54,9 @@
 
       <!-- 留言列表 -->
       <div id="cmtList" class="comment-list"></div>
+      <div style="text-align:center; margin-top:22px;">
+        <button id="loadMore" class="btn btn-ghost" style="display:none;">加载更多留言</button>
+      </div>
 
     </div>
   </section>

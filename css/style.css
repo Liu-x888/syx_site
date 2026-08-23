@@ -425,3 +425,19 @@ footer .disclaimer { max-width: 720px; margin: 0 auto 10px; font-size: 0.8rem; o
 
 /* 照片加载前的底色，避免大图加载时空白 */
 .g-item { background: linear-gradient(135deg, var(--primary-soft), var(--bg)); }
+
+
+
+/* ---------- 作品页 · QQ音乐跳转 ---------- */
+.song-link {
+  color: var(--primary-deep); text-decoration: none;
+  border-bottom: 2px dashed rgba(46,148,180,0.4);
+  transition: all .2s ease;
+}
+.song-link:hover { color: var(--primary); border-bottom-color: var(--primary); }
+.qq-badge {
+  display: inline-block; margin-left: 8px; vertical-align: middle;
+  font-size: 0.66rem; font-weight: 700; letter-spacing: .5px;
+  color: #fff; background: linear-gradient(135deg, #31C27C, #1fa05f);
+  padding: 2px 9px; border-radius: 999px; white-space: nowrap;
+}
