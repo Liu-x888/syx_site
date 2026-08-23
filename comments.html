@@ -18,8 +18,7 @@
       <a href="comments.html">留言板</a>
     </div>
     <div class="nav-extras">
-      <a class="icon-btn" href="https://weibo.com/n/时代少年团-宋亚轩" target="_blank" rel="noopener" title="官方微博">📣</a>
-      <button class="icon-btn nav-toggle" aria-label="菜单">☰</button>
+      <a class="weibo-link" href="https://weibo.com/n/时代少年团-宋亚轩" target="_blank" rel="noopener" title="通往现实世界亚轩的通道">📣 通往现实世界亚轩的通道</a>
     </div>
   </nav>
 
@@ -32,7 +31,7 @@
   <section class="section" style="padding-top:34px;">
     <div class="container" style="max-width:760px;">
 
-      <div class="notice" id="modeNotice">💡 <div>正在检测留言模式…</div></div>
+      <div class="notice">💡 <div><b>轻量本地模式：</b>页面固定显示 10 条原始评论；你可以匿名留言（本页立即显示），但留言不会被保存，刷新后恢复原样。零成本、免维护，以后想升级云端互通随时说～</div></div>
 
       <!-- 留言表单 -->
       <form id="cmtForm" class="comment-form card">
@@ -42,6 +41,8 @@
           <button type="submit" class="btn btn-like">💬 发送留言</button>
         </div>
       </form>
+
+      <div id="postTip" class="post-tip" style="display:none;"></div>
 
       <!-- 排序工具条 -->
       <div class="toolbar">
@@ -54,9 +55,6 @@
 
       <!-- 留言列表 -->
       <div id="cmtList" class="comment-list"></div>
-      <div style="text-align:center; margin-top:22px;">
-        <button id="loadMore" class="btn btn-ghost" style="display:none;">加载更多留言</button>
-      </div>
 
     </div>
   </section>

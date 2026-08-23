@@ -2,17 +2,7 @@
 (function () {
   "use strict";
 
-  /* 顶部导航（移动端折叠） */
-  var toggle = document.querySelector(".nav-toggle");
-  var links = document.querySelector(".nav-links");
-  if (toggle && links) {
-    toggle.addEventListener("click", function () {
-      links.classList.toggle("open");
-    });
-    links.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") links.classList.remove("open");
-    });
-  }
+  /* 顶部导航（始终显示，无需折叠菜单） */
 
   /* 当前页导航高亮 */
   var page = location.pathname.split("/").pop() || "index.html";
@@ -123,7 +113,8 @@
         var chips = (w.highlights || []).map(function (h) { return '<span class="chip">' + h + "</span>"; }).join("");
         var meta = w.date ? '<div class="meta">' + w.date + " · " + (w.type || "") + "</div>" : '<div class="meta">' + (w.type || "") + "</div>";
         var title = w.qq ? '<a class="song-link" href="' + w.qq + '" target="_blank" rel="noopener" title="在 QQ 音乐打开这首歌">' + w.title + '<span class="qq-badge">QQ音乐 ↗</span></a>' : w.title;
-        return '<article class="work card reveal"><span class="tag">' + labels[w.cat] + "</span><h3>" + title + "</h3>" + meta + "<p>" + w.desc + "</p>" + (chips ? '<div class="chip-row">' + chips + "</div>" : "") + "</article>";
+        var qqBtn = w.qq ? '<a class="qq-go-btn" href="' + w.qq + '" target="_blank" rel="noopener">🎧 去QQ音乐听</a>' : "";
+        return '<article class="work card reveal' + (w.qq ? " work-qq" : "") + '"' + (w.qq ? ' data-qq="' + w.qq + '"' : "") + '><span class="tag">' + labels[w.cat] + "</span><h3>" + title + "</h3>" + meta + "<p>" + w.desc + "</p>" + (chips ? '<div class="chip-row">' + chips + "</div>" : "") + qqBtn + "</article>";
       }).join("");
       /* 触发入场动画 */
       worksWrap.querySelectorAll(".reveal").forEach(function (el) {
@@ -139,6 +130,11 @@
       tabsWrap.querySelectorAll(".tab").forEach(function (t) { t.classList.remove("active"); });
       btn.classList.add("active");
       render(btn.dataset.cat);
+    });
+    worksWrap.addEventListener("click", function (e) {
+      if (e.target.closest("a")) return;
+      var card = e.target.closest(".work-qq");
+      if (card && card.dataset.qq) window.open(card.dataset.qq, "_blank", "noopener");
     });
     render("all");
   }
