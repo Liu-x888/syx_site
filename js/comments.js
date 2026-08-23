@@ -118,7 +118,7 @@
     lastPost = Date.now();
     textarea.value = "";
     if (charHint) charHint.textContent = "0 / 200";
-    showTip("✅ 留言已发布（本页演示，刷新后不保留）");
+    showTip("✅ 留言已发布");
     render();
   });
 
