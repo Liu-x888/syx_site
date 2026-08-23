@@ -461,6 +461,11 @@ footer .disclaimer { max-width: 720px; margin: 0 auto 10px; font-size: 0.8rem; o
 }
 .qq-go-btn:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(49, 194, 124, 0.45); }
 .work-qq { cursor: pointer; }
+.qq-hint {
+  margin: 8px 0 0; font-size: 0.72rem; color: var(--primary-deep); opacity: .75;
+  line-height: 1.5;
+}
+
 
 /* ---------- 留言板 · 发布提示 ---------- */
 .post-tip {

@@ -107,14 +107,27 @@
       window.WORKS_DATA[k].forEach(function (w) { allWorks.push(Object.assign({ cat: k }, w)); });
     });
 
+    /* 手机/电脑使用不同 QQ 音乐入口：手机直达歌曲，电脑用搜索页（网页版歌曲页在部分浏览器会一直转圈） */
+    var isMobile = /Android|iPhone|iPad|iPod|Mobile|HarmonyOS/i.test(navigator.userAgent);
+    function qqUrl(w) {
+      if (w.mid) {
+        if (isMobile) return "https://y.qq.com/n/ryqq/songDetail/" + w.mid;
+        return "https://y.qq.com/n/ryqq/search?w=" + encodeURIComponent(w.title.replace(/《|》/g, "") + " 宋亚轩");
+      }
+      return w.qq || "";
+    }
+    var qqHint = isMobile
+      ? "手机点开若弹出「打开QQ音乐」，点一下即可直达这首歌"
+      : "电脑打开的是QQ音乐搜索页，点第一条结果即为本歌曲";
     function render(cat) {
       var list = cat === "all" ? allWorks : allWorks.filter(function (w) { return w.cat === cat; });
       worksWrap.innerHTML = list.map(function (w) {
         var chips = (w.highlights || []).map(function (h) { return '<span class="chip">' + h + "</span>"; }).join("");
         var meta = w.date ? '<div class="meta">' + w.date + " · " + (w.type || "") + "</div>" : '<div class="meta">' + (w.type || "") + "</div>";
-        var title = w.qq ? '<a class="song-link" href="' + w.qq + '" target="_blank" rel="noopener" title="在 QQ 音乐打开这首歌">' + w.title + '<span class="qq-badge">QQ音乐 ↗</span></a>' : w.title;
-        var qqBtn = w.qq ? '<a class="qq-go-btn" href="' + w.qq + '" target="_blank" rel="noopener">🎧 去QQ音乐听</a>' : "";
-        return '<article class="work card reveal' + (w.qq ? " work-qq" : "") + '"' + (w.qq ? ' data-qq="' + w.qq + '"' : "") + '><span class="tag">' + labels[w.cat] + "</span><h3>" + title + "</h3>" + meta + "<p>" + w.desc + "</p>" + (chips ? '<div class="chip-row">' + chips + "</div>" : "") + qqBtn + "</article>";
+        var u = qqUrl(w);
+        var title = u ? '<a class="song-link" href="' + u + '" target="_blank" rel="noopener" title="在 QQ 音乐打开这首歌">' + w.title + '<span class="qq-badge">QQ音乐 ↗</span></a>' : w.title;
+        var qqBtn = u ? '<a class="qq-go-btn" href="' + u + '" target="_blank" rel="noopener">🎧 去QQ音乐听</a><p class="qq-hint">' + qqHint + "</p>" : "";
+        return '<article class="work card reveal' + (u ? " work-qq" : "") + '"' + (u ? ' data-qq="' + u + '"' : "") + '><span class="tag">' + labels[w.cat] + "</span><h3>" + title + "</h3>" + meta + "<p>" + w.desc + "</p>" + (chips ? '<div class="chip-row">' + chips + "</div>" : "") + qqBtn + "</article>";
       }).join("");
       /* 触发入场动画 */
       worksWrap.querySelectorAll(".reveal").forEach(function (el) {
