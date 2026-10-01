@@ -29,7 +29,7 @@
 直接用浏览器双击打开 `index.html` 即可，或（推荐）在项目目录运行：
 `python -m http.server 8000`，然后浏览器访问 http://localhost:8000
 
-## 四、发布上线（免费公开网址）🔗
+## 四、发布上线（免费公开网址）🔗https://liu-x888.github.io/syx_site/
 
 ### 方式 A：GitHub Pages（推荐，免费、稳定）
 
