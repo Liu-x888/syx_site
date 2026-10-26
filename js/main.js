@@ -61,22 +61,72 @@
   var lightbox = document.getElementById("lightbox");
   if (galleryEl && window.GALLERY) {
     galleryEl.innerHTML = window.GALLERY.map(function (g, i) {
-      return '<figure class="g-item" data-index="' + i + '"><img src="' + g.src + '" alt="' + g.cap + '"><figcaption class="cap">' + g.cap + "</figcaption></figure>";
+      var thumb = g.thumb || g.src;
+      var small = g.small || thumb;
+      var fallback = g.fallback || g.src;
+      var loading = i < 4 ? ' fetchpriority="high"' : ' loading="lazy"';
+      var size = g.w && g.h ? ' width="' + g.w + '" height="' + g.h + '"' : "";
+      return '<figure class="g-item" data-index="' + i + '" role="button" tabindex="0" aria-label="查看照片：' + g.cap + '">' +
+        '<picture><source media="(max-width: 640px)" srcset="' + small + '">' +
+        '<img src="' + thumb + '" data-fallback="' + fallback + '" alt="' + g.cap + '"' + size + ' decoding="async"' + loading + '></picture>' +
+        '<figcaption class="cap">' + g.cap + "</figcaption></figure>";
     }).join("");
 
+    galleryEl.querySelectorAll(".g-item img").forEach(function (img) {
+      img.addEventListener("error", function () {
+        var fallback = img.getAttribute("data-fallback");
+        if (fallback && img.getAttribute("src") !== fallback) {
+          img.setAttribute("src", fallback);
+        }
+      });
+    });
+
     var cur = 0;
+    var loadToken = 0;
+    var touchStartX = null;
+    var lastTrigger = null;
+    var lightboxImg = lightbox.querySelector("img");
+
     function show(idx) {
       cur = (idx + window.GALLERY.length) % window.GALLERY.length;
       var g = window.GALLERY[cur];
-      lightbox.querySelector("img").src = g.src;
+      var thumb = g.thumb || g.src;
+      var full = g.src || thumb;
+      var token = ++loadToken;
+
+      lightboxImg.src = thumb;
+      lightboxImg.alt = g.cap;
       lightbox.querySelector(".lb-cap").textContent = g.cap + " · " + (cur + 1) + "/" + window.GALLERY.length;
+
+      if (full && full !== thumb) {
+        var loader = new Image();
+        loader.onload = function () {
+          if (token === loadToken) lightboxImg.src = full;
+        };
+        loader.onerror = function () {
+          if (token === loadToken && g.fallback) lightboxImg.src = g.fallback;
+        };
+        loader.src = full;
+      }
+    }
+    function openAt(idx, trigger) {
+      lastTrigger = trigger || null;
+      show(idx);
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lightbox-open");
+      lightbox.querySelector(".lb-close").focus();
     }
     galleryEl.addEventListener("click", function (e) {
       var item = e.target.closest(".g-item");
       if (!item) return;
-      show(+item.dataset.index);
-      lightbox.classList.add("open");
-      document.body.style.overflow = "hidden";
+      openAt(+item.dataset.index, item);
+    });
+    galleryEl.addEventListener("keydown", function (e) {
+      var item = e.target.closest(".g-item");
+      if (!item || (e.key !== "Enter" && e.key !== " ")) return;
+      e.preventDefault();
+      openAt(+item.dataset.index, item);
     });
     lightbox.querySelector(".lb-close").addEventListener("click", close);
     lightbox.querySelector(".lb-prev").addEventListener("click", function () { show(cur - 1); });
@@ -90,9 +140,21 @@
       if (e.key === "ArrowLeft") show(cur - 1);
       if (e.key === "ArrowRight") show(cur + 1);
     });
+    lightbox.addEventListener("touchstart", function (e) {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    lightbox.addEventListener("touchend", function (e) {
+      if (touchStartX === null) return;
+      var distance = e.changedTouches[0].clientX - touchStartX;
+      touchStartX = null;
+      if (Math.abs(distance) < 45) return;
+      show(cur + (distance < 0 ? 1 : -1));
+    }, { passive: true });
     function close() {
       lightbox.classList.remove("open");
-      document.body.style.overflow = "";
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lightbox-open");
+      if (lastTrigger) lastTrigger.focus();
     }
   }
 

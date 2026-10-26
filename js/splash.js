@@ -20,7 +20,7 @@
     clearTimeout(timer);
     if (replay) {
       splash.classList.remove("ready");
-      timer = setTimeout(function () { splash.classList.add("ready"); }, 2000);
+      timer = setTimeout(function () { splash.classList.add("ready"); }, 300);
     } else {
       splash.classList.add("ready");
     }
