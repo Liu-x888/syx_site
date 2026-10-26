@@ -2,6 +2,8 @@
 #splash {
   position: fixed;
   inset: 0;
+  height: 100vh;
+  height: 100dvh;
   z-index: 99999;
   display: flex;
   align-items: center;
@@ -15,7 +17,7 @@
 .splash-bg {
   position: absolute;
   inset: -26px;
-  background: url("../photos/splash-bg.jpg") center / cover no-repeat;
+  background: url("../splash-bg.webp") center / cover no-repeat;
   filter: blur(10px) saturate(1.08);
   transform: scale(1.12);
 }
@@ -110,5 +112,34 @@
 #splash.ready .splash-sub { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
-  .fish, .bubble, .splash-rays i { animation-duration: 9s !important; }
+  .fish, .bubble, .splash-rays i, .splash-title, .splash-enter { animation: none !important; }
+}
+
+@media (max-width: 640px) {
+  .splash-bg { inset: -12px; filter: blur(6px) saturate(1.05); transform: scale(1.08); }
+  .splash-rays i { width: 30vw; opacity: .7; }
+  .fish:nth-child(n+6),
+  .bubble:nth-child(n+7) { display: none; }
+  .splash-center { width: 100%; padding: 0 20px; }
+  .splash-title {
+    margin-bottom: 30px;
+    font-size: clamp(1.55rem, 7.5vw, 2.2rem);
+    letter-spacing: 1px;
+    line-height: 1.45;
+  }
+  .splash-enter {
+    min-width: 180px;
+    min-height: 52px;
+    padding: 13px 36px;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-indent: 3px;
+  }
+  .splash-sub {
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: .78rem;
+    letter-spacing: 1px;
+    line-height: 1.6;
+  }
 }
